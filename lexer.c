@@ -223,8 +223,7 @@ void keyword_check()
 
 int main()
 {
-    /* By Ashik Rabbani
-    Daffodil International University,CSE43 */
+
     keyword_check();
     identifier_check();
     math_operator_check();
