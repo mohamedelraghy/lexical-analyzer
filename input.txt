@@ -1,4 +1,4 @@
 int i = 0;
 for ( i ; i <= 5 ; i = i + 1) {
-    printf( "Mohamed\n" );
+    printf( "Mohamed" );
 }
