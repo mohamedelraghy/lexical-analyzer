@@ -39,7 +39,7 @@ public class Lexer {
         int j = i;
 
         for (; j < s.length();) {
-            if (Character.isLetter(s.charAt(j))||Character.isDigit(s.charAt(j))) {
+            if (Character.isLetter(s.charAt(j))||Character.isDigit(s.charAt(j))||s.charAt(j)=='_') {
                 j++;
             } else {
                 return s.substring(i, j);
@@ -74,7 +74,8 @@ public class Lexer {
 
         // System.out.println(result);
         for (int i = 0; i < input.length();) {
-            if (Character.isWhitespace(input.charAt(i))||input.charAt(i)=='\n'||input.charAt(i)==';'||input.charAt(i)==',') {
+            System.out.println(input.charAt(i));
+            if (Character.isWhitespace(input.charAt(i))||input.charAt(i)=='\n'||input.charAt(i)==';'||input.charAt(i)==','||input.charAt(i)==':') {
                 i++;
             }else if ((input.charAt(i)=='>'&&input.charAt(i+1)=='>')||(input.charAt(i)=='<'&&input.charAt(i+1)=='<')){
 
