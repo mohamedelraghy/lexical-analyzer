@@ -74,8 +74,8 @@ public class Lexer {
 
         // System.out.println(result);
         for (int i = 0; i < input.length();) {
-            System.out.println(input.charAt(i));
-            System.out.println(i);
+            //System.out.println(input.charAt(i));
+            //System.out.println(i);
             if (Character.isWhitespace(input.charAt(i))||input.charAt(i)=='\n'||input.charAt(i)==';'||input.charAt(i)==','||input.charAt(i)==':') {
                 i++;
             }else if ((input.charAt(i)=='>'&&input.charAt(i+1)=='>')||(input.charAt(i)=='<'&&input.charAt(i+1)=='<')){
@@ -121,10 +121,14 @@ public class Lexer {
 
                     result.add(new Token(Type.ASSIGNMENT, "assignment operator ("+input.charAt(i)+"=)"));
                     i+=2;
-                }else{
+                }else if ((input.charAt(i)=='+'||input.charAt(i)=='-')&&input.charAt(i)==input.charAt(i+1)){
+                    result.add(new Token(Type.OPERATION, "operator ("+input.charAt(i)+input.charAt(i+1)+")"));
+                    i+=2;
+                }
+                else{
 
 
-                    result.add(new Token(Type.OPERATION, "assignment operator ("+input.charAt(i)+")"));
+                    result.add(new Token(Type.OPERATION, "operator ("+input.charAt(i)+")"));
                     i++;
                 }
             }
