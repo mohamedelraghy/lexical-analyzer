@@ -1,4 +1,5 @@
-int i = 0;
-for ( i ; i <= 5 ; i = i + 1) {
+int 5ii5 = 0;
+i+=1;
+for ( i ; i <= 55 ; i = i + 1) {
     printf( "Mohamed" );
 }
