@@ -70,11 +70,12 @@ public class Lexer {
                 "if", "int", "long", "register", "return", "short", "signed",
                 "sizeof", "static", "struct", "switch", "typedef", "union",
                 "unsigned", "void", "volatile"
-                ,"float","using","namespace","std"));
+                ,"float","using","namespace","std","cout","cin"));
 
         // System.out.println(result);
         for (int i = 0; i < input.length();) {
             System.out.println(input.charAt(i));
+            System.out.println(i);
             if (Character.isWhitespace(input.charAt(i))||input.charAt(i)=='\n'||input.charAt(i)==';'||input.charAt(i)==','||input.charAt(i)==':') {
                 i++;
             }else if ((input.charAt(i)=='>'&&input.charAt(i+1)=='>')||(input.charAt(i)=='<'&&input.charAt(i+1)=='<')){
@@ -91,12 +92,17 @@ public class Lexer {
                 i++;
                 result.add(new Token(Type.INCLUDELIBIRARY, atom));
             }
-            else if (input.charAt(i)=='<'||input.charAt(i)=='>'||input.charAt(i)=='!'||(input.charAt(i)=='='&&input.charAt(i+1)=='=')){
+            else if (input.charAt(i)=='^'||input.charAt(i)=='&'||input.charAt(i)=='|'||input.charAt(i)=='<'||input.charAt(i)=='>'||input.charAt(i)=='!'||(input.charAt(i)=='='&&input.charAt(i+1)=='=')){
                 if (input.charAt(i+1)=='='){
 
                     result.add(new Token(Type.LOGICALOPERATION, "logical op ("+input.charAt(i)+"=)"));
                     i+=2;
-                }else{
+                }else if (input.charAt(i+1)==input.charAt(i)){
+
+                    result.add(new Token(Type.LOGICALOPERATION, "logical op ("+input.charAt(i)+input.charAt(i+1)+")"));
+                    i+=2;
+                }
+                else{
                     result.add(new Token(Type.LOGICALOPERATION, "logical op ("+input.charAt(i)+")"));
                     i++;
                 }
