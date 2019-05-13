@@ -174,7 +174,7 @@ public class Lexer {
 
         String s = new String();
         try{
-            FileReader fr = new FileReader("/home/kerollos/Desktop/compilers project/Lexecal analyser/src/input.txt");
+            FileReader fr = new FileReader("input.txt");
             BufferedReader br = new BufferedReader(fr);
             String str = new String();
             while ((str=br.readLine())!=null){
